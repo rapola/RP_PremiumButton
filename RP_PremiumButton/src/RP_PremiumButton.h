@@ -77,11 +77,11 @@ class RP_PremiumButton
 		/*
 		* Changeable variables, default initialisation
 		*/	    
-    uint32_t dbTime = 25;				          //debounce Time 													                        (25 mS is good value)
-		uint32_t tm_delayed = 5000;			      //time for off delay 												                      (if not used, set to 5000 mS)
-		uint32_t tm_press_ack = 400;			    //time for duration of acknowledging button press detected 		    (400 mS is good value)
-		uint32_t tm_lp = 4000;					      //time until long press is detected 								              (4000 mS is good value)
-		uint32_t tm_lp_ack = 400;				      //time for duration of acknowledging button long press detected 	(400 mS is good value)
+    uint32_t dbTime = 25;                 //debounce Time                                                   (25 mS is good value)
+		uint32_t tm_delayed = 5000;           //time for off delay                                              (if not used, set to 5000 mS)
+		uint32_t tm_press_ack = 400;          //time for duration of acknowledging button press detected        (400 mS is good value)
+		uint32_t tm_lp = 4000;                //time until long press is detected                               (4000 mS is good value)
+		uint32_t tm_lp_ack = 400;             //time for duration of acknowledging button long press detected   (400 mS is good value)
     uint32_t press_cnt = 0;               //counter how often button is pressed. 
 	
 	private:
