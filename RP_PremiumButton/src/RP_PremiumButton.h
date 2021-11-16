@@ -86,16 +86,16 @@ class RP_PremiumButton
     
 	private:
 
-		bool invert = false;					  //if true, logic interprets low as pressed                        (e.g. if pullup used)	(default set to 0)
-		uint32_t mem_tm_lastChange;		  //time of last state change (mS)									                (set to 0)
-		bool state;						          //current button state, true if pressed								            (set to 0)
-		bool last_state;				        //previous button state												                    (set to 0)
-		bool flag_changed;				      //flag, state changed since last read								              (set to 0)
-		bool ack;						            //high for duration of tm_ack										                  (set to 0)
-		bool lp_ack;					          //high for duration of tm_lp_ack									                (set to 0)
-		bool delayed; 					        //delayed low after button was pressed. needs a zero-crossing
+		bool invert = false;            //if true, logic interprets low as pressed                        (e.g. if pullup used)	(default set to 0)
+		uint32_t mem_tm_lastChange;     //time of last state change (mS)									                (set to 0)
+		bool state;                     //current button state, true if pressed								            (set to 0)
+		bool last_state;                //previous button state												                    (set to 0)
+		bool flag_changed;              //flag, state changed since last read								              (set to 0)
+		bool ack;                       //high for duration of tm_ack										                  (set to 0)
+		bool lp_ack;                    //high for duration of tm_lp_ack									                (set to 0)
+		bool delayed;                   //delayed low after button was pressed. needs a zero-crossing
                                     //for retriggering (safe if a switch is used instead of a button)	(set to 0)
-		bool delaystate;				        //flag																                            (set to 0)
+		bool delaystate;                //flag																                            (set to 0)
 		uint32_t tms_delay;				      //stores the time for delay											                  (set to 0)
 		bool flipflop;					        //flip-flop output, toggles each debounced presss					        (set to 0)
 		bool last_flipflop;				      //stores last flip flop state										                  (set to 0)
