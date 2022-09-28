@@ -83,6 +83,7 @@ class RP_PremiumButton
 		uint32_t tm_lp = 4000;                //time until long press is detected                               (4000 mS is good value)
 		uint32_t tm_lp_ack = 400;             //time for duration of acknowledging button long press detected   (400 mS is good value)
     uint32_t press_cnt = 0;               //counter how often button is pressed.
+    bool flag = 0;                        //set flag if anything should be executed once if button is pressed
     
 	private:
 

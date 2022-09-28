@@ -28,8 +28,13 @@ void loop() {
   Btn.Update(true, true, digitalRead(Ta));
 
   digitalWrite(LED_BUILTIN, Btn.BtnFlipFlop());
-
   
+  if((Btn.BtnState() == true) && (Btn.flag == false)){
+    Btn.flag = true;    //-> set flag, will be automatically reseted if button is released
+    Serial.println("pressed!!");
+    Serial.println();
+  }
+ 
   if(millis() - ms > 500){
     Serial.print("Cnt: ");
     Serial.println(cnt);
@@ -46,5 +51,5 @@ void loop() {
     ms = millis();
     cnt++;
   }
-
+  
 }

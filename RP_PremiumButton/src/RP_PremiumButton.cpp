@@ -39,14 +39,14 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 	}
 	else{
 		last_state = state;
-		state = inVal;										  //update Button state
+		state = inVal;										        //update Button state
     flag_changed = (state != last_state);
 		if(flag_changed){
 			mem_tm_lastChange = msTick;
 		}
 	}
 
-	if(state == false){										//handle press ack
+	if(state == false){										      //handle press ack
 		tms_press_ack = msTick;
 	}
 	if((state == true) && (msTick - tms_press_ack <= tm_press_ack)){
@@ -56,7 +56,7 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 			ack = false;
 		}
 
-  if(state == true){                    //handle press counter
+  if(state == true){                          //handle press counter
     if(flag_press_cnt == false){
       press_cnt++;
       flag_press_cnt = true;
@@ -67,7 +67,7 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
   }
 
 
-	if(state == true && ctrl == true){						//handle flip flop
+	if(state == true && ctrl == true){				  //handle flip flop
 		if(last_flipflop == false){
 			last_flipflop = true;
 			flipflop = !flipflop;
@@ -80,7 +80,7 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 		flipflop = false;
 	}
 
-	if(delaystate == false){								//handle delayed off
+	if(delaystate == false){								    //handle delayed off
 		if((state == true) && (ctrl == true)){
 			delaystate = true;
 			tms_delay = msTick;
@@ -100,7 +100,7 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 		delaystate = false;
 	}
 
-	if((state == true) && (lp_prev == false)){		//handle long press
+	if((state == true) && (lp_prev == false)){	//handle long press
 		longpressed = false;
 		if((msTick - tms_lp) > tm_lp){
 			if(lp_ena == true){
@@ -120,7 +120,7 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 		lp_prev = false;
 	}
 
-	if(longpressed == false){								//handle long press ack
+	if(longpressed == false){								     //handle long press ack
 		tms_lp_ack = msTick;
 	}
 	if((longpressed == true) && (msTick - tms_lp_ack <= tm_lp_ack)){
@@ -129,6 +129,10 @@ void RP_PremiumButton::Update(bool ctrl, bool lp_ena, bool input){
 	else{
 		lp_ack = false;
 	}
+  
+  if(state == false){                         //reset flag if button is released
+    flag = false;
+  }
 
 
 }
